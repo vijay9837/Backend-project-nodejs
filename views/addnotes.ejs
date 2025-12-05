@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add notes</title>
+  </head>
+  <body>
+    <h2>Add Notes</h2>
+    <%if(typeof uid !== 'undefined'){%>
+    <form action="/notes/<%=uid%>/addnotes" method="post" enctype="multipart/form-data">
+      <label for="">Title <input type="text" name="title" /></label>
+      <label for="">Content <input type="text" name="content" /></label>
+      <label for="">Upload <input type="file" name="image" /></label>
+      <button type="submit">Post</button>
+    </form>
+    <%}%>
+  </body>
+</html>

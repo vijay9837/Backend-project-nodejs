@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <h2>Signup</h2>
+    <form action="/signup" method="post">
+      <label for=""
+        >Username <input type="text" required name="username"
+      /></label>
+      <%if(typeof usernameerror === 'undefined'){%> <%}else{%>
+      <p style="color: red;"><%=usernameerror%></p>
+      <%}%>
+      <label for="">Email <input type="email" required name="email" /></label>
+      <%if(typeof emailerror === 'undefined'){%> <%}else{%>
+      <p style="color: red;"><%=emailerror%></p>
+      <%}%>
+      <label for=""
+        >Password <input type="password" required name="password"
+      /></label>
+      <button type="submit">Signup</button>
+    </form>
+    <p>if you have an account <a href="/login">Login</a></p>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+        nav{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .post-card{
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px black;
+            padding: 10px;
+        }
+        .post-container{
+            display: flex;
+            gap: 20px;
+        }
+        .login-details{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2>Home Page</h2>
+      <div class="login-details">
+      <p>user login :- <%if(typeof user !== "undefined"){%>
+        <p style="color: red;"><%=user.email%></p>
+     </p>
+
+         <button style="background-color: red;"> <a href="/logout" style=" color: white;">logout</a></button>
+      </div>
+
+    </nav>
+    <button><a href="/notes/<%=user.uid%>/addnotes">Add Post</a></button>
+    <%}%>
+    <h3>All POST</h3>
+    <div class="post-container">
+  <%if(typeof posts !== 'undefined' && typeof posts === "object"  ){%>
+        <%posts.map((post)=>{ %>
+            <div class="post-card">
+           <img src="/uploads/<%=post.file%>" alt="image" width="120px">
+            <p>Title :-<%=post.title%></p>
+            <p>Content :- <%=post.content%></p>
+            <div>
+                <button style="background-color: greenyellow;"><a href="/notes/<%=post.notesid%>/note">View Post</a></button>
+            <button style="background-color: orange;"><a href="/notes/<%=post.notesid%>/delete" style="color: white;">Delete</a></button>
+
+            </div>
+            </div>
+ 
+        <%})%>
+    <%}else{%>
+        <p>No Posts.</p>
+   <% }%>
+    </div>
+  
+  </body>
+</html>
