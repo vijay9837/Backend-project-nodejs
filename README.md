@@ -16,7 +16,7 @@ It supports user signup/login (with hashed passwords), session management + JWT 
 # How To Run
 step 1 :- npm install
 step 2 :- install all Dependencies
-
+step 3 :- start the project (npm start)
 # Dependencies
 bcryptjs
 dotenv
